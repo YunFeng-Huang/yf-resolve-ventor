@@ -2,11 +2,13 @@ import Vue from 'vue';
 import copy from './src/v-copy';
 import avatar from "./src/v-avatar";
 import href from "./src/v-href";
+import lazyload from "./src/v-lazyload";
 // 自定义指令
 const directives = {
   copy,
   avatar,
-  href
+  href,
+  lazyload
 };
 // Object.keys(directives).forEach((key) => {
 //   Vue.directive(key, directives[key]);
