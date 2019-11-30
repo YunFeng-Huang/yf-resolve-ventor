@@ -14,7 +14,7 @@ Vue.use(directive)
 
 v-href = "{path:'index.html',query:{name:'123',age:'12'}}"
 
-v-avatar="{src="http://......",size="16"}"
+v-avatar="http://......"
 
 v-copy="复制的值"
 
