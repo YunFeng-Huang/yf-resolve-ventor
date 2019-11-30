@@ -6,19 +6,25 @@ const vAvatar = {
     value: 传给指令的值
   */
   bind(el, { value }) {
-    el.$value = value;
     el.src = "https://kouhigh.kouhigh.top/upload/app/2019_09_16/7465c201909161531245369.jpg";
-    if(el.$value){
+    if(value){
       let img = new Image();
       img.onload = function () {
-        el.src = el.$value;
+        el.src = value;
       };
-      img.src = el.$value;
+      img.src = value;
     }
   },
   update: function (el, { value }) {
-    el.$value = value;
-  }
+    if(value){
+      let img = new Image();
+      img.onload = function () {
+        el.src = value;
+      };
+      img.src = value;
+    }
+  },
+  
 };
 
 export default vAvatar;
