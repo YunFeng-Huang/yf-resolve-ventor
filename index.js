@@ -3,12 +3,14 @@ import copy from './src/v-copy';
 import avatar from "./src/v-avatar";
 import href from "./src/v-href";
 import lazyload from "./src/v-lazyload";
+import scrollTop from "./src/v-scrollTop";
 // 自定义指令
 const directives = {
   copy,
   avatar,
   href,
-  lazyload
+  lazyload,
+  scrollTop
 };
 // Object.keys(directives).forEach((key) => {
 //   Vue.directive(key, directives[key]);

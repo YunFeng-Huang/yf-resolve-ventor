@@ -43,7 +43,7 @@ function addListener(el,{value}) {
   window.addEventListener('scroll',throttle(lazyload,500,1000));
 
 }
-const vAvatar = {
+const vlazyload = {
   /*
     bind 钩子函数，第一次绑定时调用，可以在这里做初始化设置
     el: 作用的 dom 对象
@@ -60,4 +60,4 @@ const vAvatar = {
   }
 };
 
-export default vAvatar;
+export default vlazyload;

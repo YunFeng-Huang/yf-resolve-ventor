@@ -18,7 +18,8 @@ v-avatar="http://......"
 
 v-copy="复制的值"
 
-v-lazyload="img"
+v-lazyload="img"  //img懒加载
 
+v-scrollTop      //返回顶部
 
 ```
