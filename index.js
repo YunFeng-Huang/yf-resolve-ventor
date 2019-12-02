@@ -1,25 +1,44 @@
-import Vue from 'vue';
-import copy from './src/v-copy';
-import avatar from "./src/v-avatar";
-import href from "./src/v-href";
-import lazyload from "./src/v-lazyload";
-import scrollTop from "./src/v-scrollTop";
-// 自定义指令
-const directives = {
-  copy,
-  avatar,
-  href,
-  lazyload,
-  scrollTop
-};
-// Object.keys(directives).forEach((key) => {
-//   Vue.directive(key, directives[key]);
-// });
-// 这种写法可以批量注册指令
-export default {
-  install(Vue) {
-    Object.keys(directives).forEach((key) => {
-      Vue.directive(key, directives[key]);
-    });
-  },
-};
+const webpack = require('webpack');
+let arr = []
+function CommonsChunkPlugin(
+    List=[
+    'iview',
+    'element-ui',
+    'axios',
+    'vue-router',
+    'core-js',
+    'async-validator',
+    'qs',
+    'vue-i18n',
+    'vue-style-loader',
+    ]
+){
+  let vendor = new webpack.optimize.CommonsChunkPlugin({
+      name: `vendor`,
+      minChunks: function (module) {
+          // a module is extracted into the vendor chunk if...
+          return (
+              // it's inside node_modules
+              /node_modules/.test(module.context) &&
+              // and not a CSS file (due to extract-text-webpack-plugin limitation)
+              !/\.css$/.test(module.request)
+          )
+      }
+  });
+  arr.push(vendor)
+  List.forEach((element) => {
+        let obj = new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor-' + element,
+            chunks: ['vendor'],
+            minChunks: function (module, count) {
+                return (
+                    module.request.includes(element)
+                )
+            }
+        })
+        arr.push(obj)
+    })
+    console.log(arr)
+    return arr;
+}
+module.exports = CommonsChunkPlugin
