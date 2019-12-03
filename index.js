@@ -38,7 +38,6 @@ function CommonsChunkPlugin(
         })
         arr.push(obj)
     })
-    console.log(arr)
     return arr;
 }
 module.exports = CommonsChunkPlugin
