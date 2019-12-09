@@ -1,5 +1,6 @@
 
 var fs = require("fs");
+let xsl = require("./xsl");
 function getDate() {
   let date = new Date();
   let y = date.getFullYear();
@@ -17,6 +18,7 @@ function filter(params) {
   }
   return value;
 }
+
 var index = {
   save_path: "sitemap.txt", //文件保存路径
   client:null, //redis
@@ -29,6 +31,7 @@ var index = {
    * @param day 默认更新时间1天
    */
   init:function({ client, default_list, weight, day=60 * 60 * 24 * 1000 , save_path }) {
+    this.setSitemapXsl()
     console.log('开始写入 Sitemap');
     this.client = client;
     this.update({ default_list, weight , save_path })
@@ -81,6 +84,7 @@ var index = {
         }
         console.log("写入成功 Sitemap");
       });
+      
     });
   },
   /**
@@ -110,6 +114,15 @@ var index = {
     this.client.hmset("YFSitemap",{
       [value]: value
     })
+  },
+  setSitemapXsl:function (params) {
+    fs.writeFile('sitemap.xsl', xsl, "utf8", function(error) {
+      if (error) {
+        console.log(error);
+        return false;
+      }
+      console.log('生成sitemap.xsl成功')
+    });
   }
 };
 
