@@ -5,7 +5,7 @@ function getDate() {
   let date = new Date();
   let y = date.getFullYear();
   let m = date.getMonth() + 1;
-  let d = date.getDate().length > 1 ? date.getDate() : "0" + date.getDate();
+  let d = date.getDate() > 9 ? date.getDate() : "0" + date.getDate();
   return y + "-" + m + "-" + d;
 }
 function filter(params) {
