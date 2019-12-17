@@ -1,6 +1,6 @@
 {
-  "name": "yf-redis-sitemap",
-  "version": "1.0.4",
+  "name": "yf-resolve-ventor",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
