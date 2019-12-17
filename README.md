@@ -44,6 +44,6 @@ plugins: [
         //// 用于控制文件名等等，代码不多         //因为要动态打包多个页面，所以这里都注释掉，在build.js和dev-sever中再动态注入
         //new VueSSRClientPlugin({
         //    filename: `${app}/vue-ssr-client-manifest.json`
-        //})
+        //})11
     ]
 ```
